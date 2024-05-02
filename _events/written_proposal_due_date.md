@@ -1,6 +1,6 @@
 ---
 type: exam
-date: 2023-06-19T23:59:00
+date: 2024-06-21T23:59:00+3:00:00
 description: 'Written Proposal Deadline Today'
 hide_from_announcments: true
 ---

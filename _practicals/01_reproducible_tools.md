@@ -1,6 +1,6 @@
 ---
 type: practical
-date: 2023-05-10T13:00:00+3:00
+date: 2024-05-10T13:00:00+3:00
 title: 'Practical 0 - Reproducible Health Data Science Research'
 links:
     - url: /static_files/practicals/Intro_to_R.html
