@@ -399,8 +399,8 @@ each <code>AppointmentID</code> refer to?</p>
 <h2>Data Parsing and Cleaning</h2>
 <p><strong>4</strong> Modify the following to make it reproducible i.e.,
 downloads the data file directly from version control</p>
-<pre class="r"><code>raw.data &lt;- read_csv(&#39;2016_05v2_VitoriaAppointmentData.csv&#39;, col_types=&#39;fffTTifllllflf&#39;)
-#raw.data &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/maguire-lab/health_data_science_research/ ... &#39;)</code></pre>
+<pre class="r"><code>raw.data &lt;- read_csv(&#39;lab1_data/2016_05v2_VitoriaAppointmentData.csv&#39;, col_types=&#39;fffTTifllllflf&#39;)
+#raw.data &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/maguire-lab/health_data_science_research_2024/ ... &#39;)</code></pre>
 <p>Now we need to check data is valid: because we specified col_types
 and the data parsed without error most of our data seems to at least be
 formatted as we expect i.e., ages are integers</p>
