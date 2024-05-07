@@ -21,7 +21,6 @@ library(viridis)        # Data Visualization
 library(ggthemes)       # Data Visualization
 library(pROC)           # Metrics
 library(caret)          # Machine Learning
-library(xgboost)        # xgboost model
 ```
 
 This practical is based on exploratory data analysis and prediction of a dataset derived from a municipal database of healthcare administrative data. This dataset is derived from Vitoria, the capital city of Espírito Santo, Brazil (population 1.8 million) and was freely shared under a creative commons license.
@@ -47,8 +46,8 @@ The data required is available via the [course website](https://github.com/magui
 **4** Modify the following to make it reproducible i.e., downloads the data file directly from version control
 
 ```{r parse}
-raw.data <- read_csv('lab1_data/2016_05v2_VitoriaAppointmentData.csv', col_types='fffTTifllllflf')
-#raw.data <- readr::read_csv('https://raw.githubusercontent.com/maguire-lab/health_data_science_research_2023/ ... ')
+raw.data <- read_csv('2016_05v2_VitoriaAppointmentData.csv', col_types='fffTTifllllflf')
+#raw.data <- readr::read_csv('https://raw.githubusercontent.com/maguire-lab/health_data_science_research/ ... ')
 ```
 
 Now we need to check data is valid: because we specified col_types and the data parsed without error most of our data seems to at least be formatted as we expect i.e., ages are integers
@@ -56,7 +55,7 @@ Now we need to check data is valid: because we specified col_types and the data 
 ```{r}
 raw.data %>% filter(Age > 110)
 ```
-We can see there are 2 patient's older than 100 which seems suspicious but we can't actually say if this is impossible.
+We can see there are 2 patient's older than 110 which seems suspicious but we can't actually say if this is impossible.
 
 **5** Are there any individuals with impossible ages? If so we can drop this row using `filter` i.e., `data <- data %>% filter(CRITERIA)`
 
@@ -173,22 +172,16 @@ ggplot(raw.data) +
 The key takeaway from this is that  number of individuals > 90 are very few from plot 1 so probably are very small so unlikely to make much of an impact on the overall distributions. 
 However, other patterns do emerge such as 10-20 age group is nearly twice as likely to miss appointments as the 60-70 years old.
 
-Another interesting finding is the `NA` group, they are the result of trying to assign age of 0 to groups and represent missing data.
-
-```{r}
-raw.data %>% filter(Age == 0) %>% count()
-```
-
 Next, we'll have a look at `SMSReceived` variable:
 
 ```{r,fig.align="center"}
 ggplot(raw.data) + 
   geom_bar(aes(x=SMSReceived, fill=NoShow), alpha=0.8) + 
-  ggtitle("Density of SMS received across Age and No Show")
+  ggtitle("Attendance by SMS Received")
 
 ggplot(raw.data) + 
   geom_bar(aes(x=SMSReceived, fill=NoShow), position='fill', alpha=0.8) + 
-  ggtitle("Density of SMS received across Age and No Show")
+  ggtitle("Proportion Attendance by SMS Received")
 ```
 
 
@@ -222,12 +215,12 @@ Most neighborhoods have similar proportions of no-show but some have much higher
 Now let's explore the relationship between gender and NoShow.
 ```{r, fig.align="center"}
 ggplot(raw.data) + 
-  geom_bar(aes(x=Gender, fill=NoShow))
+  geom_bar(aes(x=Gender, fill=NoShow))+
   ggtitle("Gender by attendance")
 
 ggplot(raw.data) + 
-  geom_bar(aes(x=Gender, fill=NoShow), position='fill')
-  ggtitle("Gender by attendance")
+  geom_bar(aes(x=Gender, fill=NoShow), position='fill')+
+  ggtitle("Proportion Gender by attendance")
 
 ```
 
@@ -256,7 +249,7 @@ ggplot(raw.data) +
 
 ggplot(raw.data) +
   geom_bar(aes(x=AppointmentDay, fill=NoShow), position = 'fill') +
-  ggtitle("Amount of No Show across Appointment Day") 
+  ggtitle("Proportion of No Show across Appointment Day") 
 
 ```
 Let's begin by creating a variable called `Lag`, which is the difference between when an appointment was scheduled and the actual appointment.
