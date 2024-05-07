@@ -64,7 +64,7 @@ filtered.data <- raw.data %>% dplyr::filter(medical_specialty %in% c("Orthopedic
 
 Let's now apply our standard pre-processing to the transcripts from these specialties.  
 We are going to use the `tidytext` package to tokenise the transcript free-text.  
-Let's remove stop words first. e.g., "the", "of", "to", and so forth.  These are known as stop words and we can remove them relative easily using a list from  `tidytext::stop_words` and `dplyr::anti_join()`
+Let's remove stop words first. e.g., "the", "of", "to", and so forth. These are known as stop words and we can remove them relative easily using a list from  `tidytext::stop_words` and `dplyr::anti_join()`
 
 ```{r}
 
@@ -91,17 +91,16 @@ You can also do bi-grams
 tokenized.data <- analysis.data %>% tidytext::unnest_tokens(ngram, transcription, token = "ngrams", n=2, to_lower = TRUE)
 ```
 
+How many stop words are there in `tidytext::stop_words` from each lexicon?
+```{r}
+tidytext::stop_words %>% dplyr::group_by(lexicon) %>% dplyr::distinct(word) %>% dplyr::summarise(n=dplyr::n())
+```
 
 **2** How many unique unigrams are there in the transcripts from each specialty:
 
 ```{r}
-tokenized.data.unigram %>% dplyr::group_by(medical_specialty) %>% dplyr::distinct(word) %>% dplyr::summarise(n=dplyr::n())
+#Insert code here. 
 
-```
-For bigram
-
-```{r}
-tokenized.data %>% dplyr::group_by(medical_specialty) %>% dplyr::distinct(ngram) %>% dplyr::summarise(n=dplyr::n())
 ```
 
 Let's plot some distribution of unigram tokens (words)
@@ -228,14 +227,14 @@ We can then look at the top 10 lemma by tf-idf within each specialty:
 ```{r}
 all.counts.tfidf %>% dplyr::group_by(medical_specialty) %>% dplyr::slice_max(order_by=tf_idf, n=10)
 ```
-**8** Are there any lemmas that stand out in these lists? Why?
+**8** Are there any lemmas that stand out in these lists? Why or why not?
 
-We can look at transcriptions using these unusual lemmas to check how they are used with `stringr::str_detect`
+We can look at transcriptions in full using these lemmas to check how they are used with `stringr::str_detect`
 ```{r}
-analysis.data %>% dplyr::select(medical_specialty, transcription) %>% dplyr::filter(stringr::str_detect(transcription, 'b.i.d')) %>% dplyr::slice(1)
+analysis.data %>% dplyr::select(medical_specialty, transcription) %>% dplyr::filter(stringr::str_detect(transcription, 'steri strips')) %>% dplyr::slice(1)
 ```
 
-**9** Extract an example of one of the other unusual "top lemmas" by modifying the above code
+**9** Extract an example of one of the other "top lemmas" by modifying the above code
 
 ## Topic Modelling
 
@@ -284,6 +283,7 @@ top.terms %>%
   ggplot2::ggplot(ggplot2::aes(beta, term, fill=factor(topic))) + 
     ggplot2::geom_col(show.legend=FALSE) + 
     ggplot2::facet_wrap(~ topic, scales='free')  +
+    ggplot2::theme(axis.text.x = element_text(angle = 45,vjust = 1,hjust = 1)) +
     tidytext::scale_y_reordered()
 ```
 
@@ -313,7 +313,7 @@ specialty_gamma %>%
   ggplot2::labs(x = "topic", y = expression(gamma))
 ```
 
-Interestingly, Surgery assigns mostly to a single topic but radiology and Orthopedic are both more diverse in transcriptions.  We'd possibly expect this from radiology due to referring to imaging for many different diagnoses/reasons. 
+Interestingly, Surgery, Orthopedic, and Radiology assign mostly to a single topics. We'd possibly expect this from radiology due to referring to imaging for many different diagnoses/reasons. 
 However, this may all just reflect we are using too few topics in our LDA to capture the range of possible assignments. 
 
 **10** Repeat this with a 6 topic LDA, do the top terms from the 3 topic LDA still turn up? How do the specialties get split into sub-topics?
