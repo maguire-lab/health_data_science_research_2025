@@ -1,5 +1,5 @@
 ---
-title: "lab 3 medical imaging"
+title: "Lab 3 medical imaging"
 author: "Sheida Majouni & Finlay Maguire"
 date: "2023-05-30"
 output: html_document
@@ -62,6 +62,9 @@ library(dplyr)
 library(abind)
 ```
 
+If using Mac OSX: imager needs [Xquartz](https://www.xquartz.org/)
+- If using homebrew: `brew install --cask xquartz`
+
 # Diagnosing Pneumonia from Chest X-Rays
 ## Parsing the data
 
@@ -71,7 +74,7 @@ Chest X-ray images (anterior-posterior) were selected from retrospective cohorts
 
 We can download, unzip, then inspect the format of this dataset as follows:
 
-"https://drive.google.com/file/d/1nRpVseeHpHfTN9x6yKw9EvU20XrkmT8A/view?usp=sharing"
+"https://drive.google.com/file/d/14H_FilWf12ONOJ_G4vvzNDDGvY7Ccqtm/view?usp=sharing"
 
 you can **unzip** the file in a data directory, using the following code:
 *uncomment it*
@@ -95,8 +98,10 @@ As with every data analysis, the first thing we need to do is learn about our da
 
 In the provided code snippet, we are exploring the dataset directory structure for a chest x-ray image classification task. 
 
+Make sure to put lab3_chest_xray directory in your R project directory.
+
 ```{r}
-data_folder = "data/lab3_chest_xray"
+data_folder = "lab3_chest_xray"
 
 files <- list.files(data_folder, full.names=TRUE, recursive=TRUE)
 sort(sample(files, 20))
@@ -112,7 +117,7 @@ The code provides a way to explore the dataset directory structure and obtain in
 
 ```{r}
 # Exploring dataset
-base_dir <- "data/lab3_chest_xray"
+base_dir <- "lab3_chest_xray"
 
 train_pneumonia_dir <- file.path(base_dir, "train", "PNEUMONIA")
 train_normal_dir <- file.path(base_dir, "train", "NORMAL")
@@ -181,7 +186,7 @@ shuffled_val_labels <- val_data$label
 
 ```{r}
 #showing a file name from test set
-cat("finle name: ", shuffled_train_dataset[5], "\nlabel: ", shuffled_train_labels[5])
+cat("file name: ", shuffled_train_dataset[5], "\nlabel: ", shuffled_train_labels[5])
 ```
 
 # Data Visualization
@@ -346,7 +351,7 @@ grid.arrange(fig, nrow = 1)
 As you can see, the provided dataset is completely balanced in all sets.
 **3_** if the dataset was not balanced, what kind of techniques could be useful?
 
-# Trainig
+# Training
 
 In the next step, we need to reshape the dataset to ensure it is in the appropriate format for feeding into deep learning models. Reshaping involves modifying the structure and dimensions of the data to match the expected input shape of the model. 
 
@@ -596,7 +601,7 @@ T_img <- torch_squeeze(torch_tensor(img)) %>%
 image(as.array(T_img))
 ```
 
-We can also add the data transofmrations to our dataloader:
+We can also add the data transformations to our dataloader:
 
 ```{r}
 # Define a custom dataset class with transformations
@@ -669,12 +674,20 @@ In the following you can see an example of how we can load pre-trained models in
 
 ```{r}
 # Load the pre-trained MobileNet model
-mobilenet <- model_mobilenet_v2(pretrained = TRUE)
+
+## doesn't work, looking at the source (https://rdrr.io/github/mlverse/torchvision/api/)
+#mobilenet <- torchvision::model_mobilenet_v2(pretrained = TRUE)
+
+source("lab3_chunk_24.R")
+
+#run all code in source to load functions 
+mobilenet<-model_mobilenet_v2(pretrained = TRUE)
 
 # Modify the last fully connected layer to match your classification task
 
 #in_features <- mobilenet$classifier$in_features
 mobilenet$classifier <- nn_linear(224*224*3, 2)   # Adjust the output size based on your classification task
+mobilenet
 ```
 **10_** Using the provided materials in this practical, train a different network architecture. Does this perform better?
 
