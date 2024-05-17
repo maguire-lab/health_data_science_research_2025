@@ -4,7 +4,7 @@ date: 2024-05-17T13:00:00+3:00
 title: 'Practical 1 - Medical Databases'
 due_event: 
     type: due
-    date: 2023-05-28T23:59:00+3:00
+    date: 2024-05-26T23:59:00+3:00
     description: 'Practical 1 due'
 links:
     - url: /static_files/practicals/lab1_medical_databases.html
