@@ -10,3 +10,6 @@ links:
     - url: https://youtu.be/5-EH1QvrkxY
       name: recording 
 ---
+
+<strong>Module 2: Electronic Medical Records</strong>
+
