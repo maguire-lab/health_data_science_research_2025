@@ -7,7 +7,7 @@ tldr: "Key approaches to the analysis of medical images including classic comput
 links: 
     - url: /static_files/lectures/lecture_3_medical_images.pdf
       name: slides 
-#    - url: https://www.youtube.com/watch?v=2v0ZU6MIO2s
-#      name: recording
+    - url: https://youtu.be/skD0D3MX0IE
+      name: recording
 ---
 <strong>Module 3: Medical Imaging (Image Data)</strong>
