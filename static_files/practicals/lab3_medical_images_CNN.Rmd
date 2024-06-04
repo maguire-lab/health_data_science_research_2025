@@ -1,6 +1,6 @@
 ---
 title: "Lab 3 medical imaging"
-author: "Sheida Majouni & Finlay Maguire"
+author: "Finlay Maguire"
 date: "2023-05-30"
 output: html_document
 ---
@@ -74,7 +74,7 @@ Chest X-ray images (anterior-posterior) were selected from retrospective cohorts
 
 We can download, unzip, then inspect the format of this dataset as follows:
 
-"https://drive.google.com/file/d/14H_FilWf12ONOJ_G4vvzNDDGvY7Ccqtm/view?usp=sharing"
+"https://drive.google.com/file/d/1-5JWvxlPayoXOuIhNPWkI0vGh4I8JfxF/view?usp=sharing"
 
 you can **unzip** the file in a data directory, using the following code:
 *uncomment it*
@@ -675,12 +675,6 @@ In the following you can see an example of how we can load pre-trained models in
 ```{r}
 # Load the pre-trained MobileNet model
 
-## doesn't work, looking at the source (https://rdrr.io/github/mlverse/torchvision/api/)
-#mobilenet <- torchvision::model_mobilenet_v2(pretrained = TRUE)
-
-source("lab3_chunk_24.R")
-
-#run all code in source to load functions 
 mobilenet<-model_mobilenet_v2(pretrained = TRUE)
 
 # Modify the last fully connected layer to match your classification task
