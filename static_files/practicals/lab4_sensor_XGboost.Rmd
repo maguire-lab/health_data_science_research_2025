@@ -8,7 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 There are 3-4 packages you will need to install for today's practical: `install.packages(c("xgboost", "eegkit", "forecast", "tseries", "caret"))` apart from that everything else should already be available on your system. 
 
 If you are using a newer Mac you may have to also install [quartz](https://www.xquartz.org/) to have everything work (do this if you see errors about `X11` during install/execution).
@@ -98,10 +97,6 @@ ggplot2::ggplot(melt, ggplot2::aes(x=ds, y=microvolts, color=Electrode)) +
   ggplot2::geom_vline(ggplot2::aes(xintercept=ds), data=dplyr::filter(melt, eyeDetection==1), alpha=0.005)
 ```
 
-
-
-
-
 **2** Do you see any obvious patterns between eyes being open (dark grey blocks in the plot) and the EEG intensities?
 
 
@@ -189,8 +184,6 @@ eegkit::eegpsd(eeg_train %>% dplyr::filter(eyeDetection == 1) %>% dplyr::select(
 
 
 
-
-
 **8** Do you see any differences between the power spectral densities for the two eye states? If so, describe them.
 
 
@@ -245,7 +238,7 @@ print(model)
 
 
 
-**10** Using the `caret` library (or any other library/model type you want such as a neural network) fit another model to predict eye opening.
+**10** Using the `caret` library (or any other library/model type you want such as a naive Bayes) fit another model to predict eye opening.
 
 ```{r model2}
 
@@ -258,13 +251,19 @@ print(model)
 
 ```
 
-**12** Describe 2 possible alternative modelling approaches for prediction of eye opening from EEGs we discussed in class but haven't explored in this notebook.
+**12** Describe 2 possible alternative modeling approaches for prediction of eye opening from EEGs we discussed in the lecture but haven't explored in this notebook.
 
 
-**13** Find 2 R libraries you could use to implement these approaches.
+**13** What are 2 R libraries you could use to implement these approaches? (note: you don't actually have to implement them though!)
 
+## Optional
 
+**14** (Optional) As this is the last practical of the course - let me know how you would change future offerings of this course. This will not impact your marks!
 
-### Optional 
+- What worked and didn’t work for you (e.g., in terms of the practicals, tutorials, and lectures)?
 
-**14** (Optional) As this is the last practical of the course - let me know how you would change future offerings of this course.  What worked and didn't work for you (e.g., in terms of the practicals, tutorials, and lectures)? What would you add or remove from the course? What was the main thing you will take away from this course? This will not impact your marks!
+- Was learning how to run the practicals on your own machines instead of a clean server that will disappear after the course worth the technical challenges?
+ 
+- What would you add or remove from the course? 
+
+- What was the main thing you will take away from this course?

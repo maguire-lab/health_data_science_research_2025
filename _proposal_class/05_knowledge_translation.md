@@ -6,4 +6,6 @@ tldr: "An overview of developing an effective knowledge translation plan for you
 links: 
     - url: /static_files/proposal_class/kt.pdf
       name: slides 
+    - url: https://youtu.be/Nl1tqgLUA8k
+      name: recording
 ---
