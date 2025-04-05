@@ -5,10 +5,10 @@ layout: home
 ## 2024 Course Details 
 
 - M/W/F: 1305-1455 (May 6th to June 21st), 1201 Mona Campbell Building
-- Office: 4239 Mona Campbell Building, Studley Campus
+- Office: 4242 Mona Campbell Building, Studley Campus
 - Office Hours: Wednesday 1500-1600 (following synchronous session)
 - Email: finlay.maguire@dal.ca
-- [Syllabus](/static_files/2024_syllabus.pdf)
+- [Syllabus](/static_files/2025_syllabus.pdf)
 
 ## Course Learning Outcomes
 The aim of this course is to provide students with the skills and knowledge required to plan effective research in the application of data science approaches to medical data. Specifically, by the end of the course students will:
