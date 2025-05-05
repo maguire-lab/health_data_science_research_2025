@@ -1,13 +1,11 @@
 ---
-type: lecture
-date: 2024-05-29T13:00:00+3:00
-hide_from_announcments: true
-title: Lecture 3 - Medical Imaging
-tldr: "Key approaches to the analysis of medical images including classic computer vision and deep learning approaches"
+type: literature
+date: 2024-05-31T13:00:00+3:00
+title: Literature 3 - Medical Imaging
+tldr: "Student led discussion of 2 papers analysing medical image data"
 links: 
-    - url: /static_files/lectures/lecture_3_medical_images.pdf
-      name: slides 
-    - url: https://youtu.be/skD0D3MX0IE
-      name: recording
+     - url: /static_files/literature/retinopathy_cnn.pdf
+       name: Development and Validation of a Deep Learning Algorithm for Detection of Diabetic Retinopathy in Retinal Fundus Photographs
+     - url: /static_files/literature/retinopathy_progression.pdf
+       name: Deep learning algorithm predicts diabetic retinopathy progression in individual patients
 ---
-<strong>Module 3: Medical Imaging (Image Data)</strong>

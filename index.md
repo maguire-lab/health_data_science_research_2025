@@ -2,9 +2,9 @@
 layout: home
 ---
 
-## 2024 Course Details 
+## 2024-2025 Course Details 
 
-- M/W/F: 1305-1455 (May 6th to June 21st), 1201 Mona Campbell Building
+- M/W/F: 1305-1455 (May 5th to June 16th), 1201 Mona Campbell Building
 - Office: 4242 Mona Campbell Building, Studley Campus
 - Office Hours: Wednesday 1500-1600 (following synchronous session)
 - Email: finlay.maguire@dal.ca
