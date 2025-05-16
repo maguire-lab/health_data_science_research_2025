@@ -11,7 +11,7 @@
 
 <meta name="author" content="Finlay Maguire" />
 
-<meta name="date" content="2024-05-07" />
+<meta name="date" content="2025-05-16" />
 
 <title>Practical 1: Medical Databases</title>
 
@@ -381,7 +381,7 @@ significant additional burden on limited medical resources. This
 analysis will try and investigate possible factors behind non-attendance
 using an administrative database of appointment data from Vitoria,
 Espírito Santo, Brazil.</p>
-<p>The data required is available via the <a href="https://github.com/maguire-lab/health_data_science_research/tree/master/static_files/practicals/lab1_data">course
+<p>The data required is available via the <a href="https://github.com/maguire-lab/health_data_science_research_2025/tree/master/static_files/practicals/lab1_data">course
 website</a>.</p>
 <div id="understanding-the-data" class="section level3">
 <h3>Understanding the data</h3>
@@ -400,7 +400,7 @@ each <code>AppointmentID</code> refer to?</p>
 <p><strong>4</strong> Modify the following to make it reproducible i.e.,
 downloads the data file directly from version control</p>
 <pre class="r"><code>raw.data &lt;- read_csv(&#39;lab1_data/2016_05v2_VitoriaAppointmentData.csv&#39;, col_types=&#39;fffTTifllllflf&#39;)
-#raw.data &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/maguire-lab/health_data_science_research_2024/ ... &#39;)</code></pre>
+#raw.data &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/maguire-lab/health_data_science_research_2025/ ... &#39;)</code></pre>
 <p>Now we need to check data is valid: because we specified col_types
 and the data parsed without error most of our data seems to at least be
 formatted as we expect i.e., ages are integers</p>
