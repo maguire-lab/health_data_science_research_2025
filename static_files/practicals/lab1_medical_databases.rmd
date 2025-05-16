@@ -11,14 +11,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(readr)          # Data Input
 library(tidymodels)     # Data Manipulation
-library(lubridate)      # Data Manupulation
+library(lubridate)      # Data Manipulation
 library(dplyr)          # Data Manipulation
 library(reshape2)       # Data Manipulation
 library(caTools)        # Data Manipulation
 library(corrplot)       # Data Visualisation
-library(ggplot2)        # Data Visualization
-library(viridis)        # Data Visualization
-library(ggthemes)       # Data Visualization
+library(ggplot2)        # Data Visualisation
+library(viridis)        # Data Visualisation
+library(ggthemes)       # Data Visualisation
 library(pROC)           # Metrics
 library(caret)          # Machine Learning
 library(xgboost)        # xgboost model
@@ -32,7 +32,7 @@ This practical is based on exploratory data analysis and prediction of a dataset
 
 The Brazilian public health system, known as SUS for Unified Health System in its acronym in Portuguese, is one of the largest health system in the world, representing government investment of more than 9% of GDP. However, its operation is not homogeneous and there are distinct perceptions of quality from citizens in different regions of the country.  Non-attendance of medical appointments contributes a significant additional burden on limited medical resources.  This analysis will try and investigate possible factors behind non-attendance using an administrative database of appointment data from Vitoria, Espírito Santo, Brazil.
 
-The data required is available via the [course website](https://github.com/maguire-lab/health_data_science_research/tree/master/static_files/practicals/lab1_data).
+The data required is available via the [course website](https://github.com/maguire-lab/health_data_science_research_2025/tree/master/static_files/practicals/lab1_data).
 
 ### Understanding the data
 
@@ -48,7 +48,7 @@ The data required is available via the [course website](https://github.com/magui
 
 ```{r parse}
 raw.data <- read_csv('lab1_data/2016_05v2_VitoriaAppointmentData.csv', col_types='fffTTifllllflf')
-#raw.data <- readr::read_csv('https://raw.githubusercontent.com/maguire-lab/health_data_science_research_2024/ ... ')
+#raw.data <- readr::read_csv('https://raw.githubusercontent.com/maguire-lab/health_data_science_research_2025/ ... ')
 ```
 
 Now we need to check data is valid: because we specified col_types and the data parsed without error most of our data seems to at least be formatted as we expect i.e., ages are integers
