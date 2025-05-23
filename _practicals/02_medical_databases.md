@@ -1,6 +1,6 @@
 ---
 type: practical
-date: 2024-05-16T13:00:00+3:00
+date: 2025-05-16T13:00:00+3:00
 title: 'Practical 1 - Medical Databases'
 due_event: 
     type: due

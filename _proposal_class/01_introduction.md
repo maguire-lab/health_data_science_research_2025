@@ -1,6 +1,6 @@
 ---
 type: proposal
-date: 2024-05-07T13:00:00+3:00
+date: 2025-05-07T13:00:00+3:00
 title: Proposal Class 0 - Papers and Research Questions
 tldr: "An overview to reading papers and developing a proposal research question"
 links: 
