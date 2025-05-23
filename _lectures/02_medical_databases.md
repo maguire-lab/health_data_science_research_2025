@@ -1,6 +1,6 @@
 ---
 type: lecture
-date: 2024-05-12T13:00:00+3:00
+date: 2025-05-12T13:00:00+3:00
 hide_from_announcments: false
 title: Lecture 1 - Medical Databases
 tldr: "An overview of medical databases, approaches for exploratory data analysis, and introduction to supervised learning on tabular data"

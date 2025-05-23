@@ -1,6 +1,6 @@
 ---
 type: literature
-date: 2024-05-23T13:00:00+3:00
+date: 2025-05-23T13:00:00+3:00
 title: Literature 2 - Electronic Medical Records
 tldr: "Student led discussion of 2 papers analysing text-data from electronic medical records"
 links: 

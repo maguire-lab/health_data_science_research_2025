@@ -1,6 +1,6 @@
 ---
 type: literature
-date: 2024-05-14T13:00:00+3:00
+date: 2025-05-14T13:00:00+3:00
 title: Literature 1 - Medical Databases
 tldr: "Student led discussion of 2 papers analysing tabular medical database data"
 links: 
