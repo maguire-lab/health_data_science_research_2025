@@ -7,7 +7,7 @@ tldr: "Survey of text datatypes from EMRs and the main natural language processi
 links: 
     - url: /static_files/lectures/lecture_2_electronic_medical_records.pdf
       name: slides 
-    - url: https://youtu.be/Gy_VmkUBLKM
+    - url: https://youtu.be/_Kw8ULlK1UY
       name: recording 
 ---
 
