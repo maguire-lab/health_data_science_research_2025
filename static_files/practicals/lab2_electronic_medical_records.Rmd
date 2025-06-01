@@ -316,7 +316,7 @@ specialty_gamma %>%
 Interestingly, Surgery, Orthopedic, and Radiology assign mostly to a single topics. We'd possibly expect this from radiology due to referring to imaging for many different diagnoses/reasons. 
 However, this may all just reflect we are using too few topics in our LDA to capture the range of possible assignments. 
 
-**10** Repeat this with a 6 topic LDA, do the top terms from the 3 topic LDA still turn up? How do the specialties get split into sub-topics?
+**10** Repeat this with a 6 topic LDA, do the top terms from the previous 5-topic LDA still turn up? How do the specialties get split into sub-topics?
 
 ## Credits
 
